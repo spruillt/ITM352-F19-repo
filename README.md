@@ -1,4 +1,3 @@
-# hello-world
-Test repos
-
-Now this is a story all about how my life got flip turned upside down. 
+# Hello!
+##this is my first repo.
+[You can find the ITM352 home repo here](https://dport96.github.io/ITM352/)
