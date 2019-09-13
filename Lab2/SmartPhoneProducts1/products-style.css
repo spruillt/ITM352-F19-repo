@@ -1,0 +1,40 @@
+/*General*/
+
+body {
+    width: 800px;
+    margin: 0 auto;
+    background-image: url("phone_globe.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 5px solid black;
+    display: flex;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+/*Typography*/
+
+p {
+    text-align: left;
+    font: "Arial";
+}
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+/*Styling Products Display*/
+
+img {
+    display: block;
+    border: 1px solid black;
+    width:200px;
+    height: 200px;
+}
