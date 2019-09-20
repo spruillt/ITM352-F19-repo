@@ -6,8 +6,6 @@ body {
     background-image: url("phone_globe.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    border: 5px solid black;
-    display: flex;
 }
 
 main {
@@ -20,21 +18,25 @@ main {
 
 p {
     text-align: left;
-    font: "Arial";
+    color: darkviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-h1 {
+h1, h2 {
     text-align: center;
-}
-
-h2 {
-    text-align: center;
+    color: darkred;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /*Styling Products Display*/
 
 img {
-    display: block;
+    align-content: center;
     border: 1px solid black;
-    width:200px;
-    height: 200px;
+    height:200px;
+    width: 200px;
+}
+
+div {
+    border: 5px solid black;
+    display: flex;
 }
