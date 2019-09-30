@@ -1,0 +1,22 @@
+html {
+    background-color: ivory;
+}
+
+h1, h2 {
+    font: 'Oswald';
+    color: darkblue;
+}
+ p {
+     font: 'Open Sans';
+     color: darkblue;
+     display: inline;
+ }
+ body {
+     margin-top: 10px;
+     margin-bottom: 10px;
+     margin-left: 50px;
+     margin-right: 50px;
+     width: 950px;
+     display: inline;
+ }
+
