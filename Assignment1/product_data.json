@@ -1,0 +1,27 @@
+[
+    {  
+    "model":"Adidas Backpack",  
+    "price": 80.00,  
+    "image": "images/adidas.jpg"
+    },
+    {  
+    "model":"Herschel Backpack",  
+    "price": 70.00,  
+    "image": "images/herschel.jpg"
+    },
+    {  
+    "model":"Jansport Backpack",  
+    "price": 60.00,  
+    "image": "images/jansport.jpg"
+     },
+     {  
+    "model":"Kanken Backpack",  
+    "price": 50.00,  
+    "image": "images/kanken.jpg"
+    },
+    {  
+    "model":"Vaschy Backpack",  
+    "price": 40.00,  
+    "image": "images/vaschy.jpg"
+    }
+  ]
