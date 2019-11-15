@@ -1,0 +1,40 @@
+@font-face {
+    font-family: RickMorty;
+    src: url(rickandmorty.ttf);
+}
+
+div {
+    font-family: myFirstFont;
+}
+
+h1{
+    font-family: "RickMorty", sans;
+    font-weight: bolder;
+    font-size: xx-large;
+  
+}
+h2{ 
+    font-family: "RickMorty";
+    font-weight: bold;
+    font-size: large;
+}
+body{
+    font-family: "RickMorty";
+    color:white;
+    margin: 10px 50px 10px 50px;
+    width: 950px;
+    background-image: url("https://i.imgur.com/yRTjpFS.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+table{
+    background-color: white;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+    opacity: 0.8;
+    border: 5px solid black;
+    border-collapse: collapse;
+}
