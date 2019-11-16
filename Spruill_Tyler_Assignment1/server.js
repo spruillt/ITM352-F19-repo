@@ -2,8 +2,8 @@
 var fs = require('fs')
 var express = require('express');
 var app = express();
-var data = require('./public/product_data.js');
-var products = data.products;
+var data = require('./public/product_data.js'); //references product data from public folder
+var products = data.products; //remove this later
 myParser = require("body-parser"); 
 
 
@@ -14,14 +14,14 @@ function isNonNegInt(q, returnErrors = false)
     if(Number(q) != q) errors.push('Not a number!'); // Check if string is a number value
     if(q < 0) errors.push('Negative value!'); // Check if it is non-negative
     if(parseInt(q) != q) errors.push('Not an integer!'); // Check that it is an integer
-    return returnErrors ? errors : (errors.length == 0);
+    return returnErrors ? errors : (errors.length == 0); 
     
 }
 
 function process_quantity_form (POST, response) {
     // take first product in array and get model, assign value, get the price
-    let model = products[0]['model'];
-    let model_price = products[0]['price'];
+    let model = products_array[i]['model'];
+    let model_price = products_array[i]['price'];
 
     // check quantity entered
    if (typeof POST['quantity_textbox'] != 'undefined') 
@@ -29,7 +29,7 @@ function process_quantity_form (POST, response) {
        q = POST ['quantity_textbox']; 
            if (isNonNegInt(q))
            {
-            var contents = fs.readFileSync('./views/display_quantity_template.view', 'utf8');
+            var contents = fs.readFileSync('./views/display_quantity_template.view', 'utf8'); //edit later, quantity template not used for assignment1
             response.send(eval('`' + contents + '`')); // render template string
            }
            else {
@@ -41,7 +41,7 @@ function process_quantity_form (POST, response) {
 // initialize express
 app.all('*', function (request, response, next) {
     console.log(request.method + ' to ' + request.path);
-    next();
+    next(); //requests the data from server 
 });
 
 app.use(myParser.urlencoded({ extended: true }));

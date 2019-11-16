@@ -1,4 +1,6 @@
- /* General */
+ /* General 
+ Modified from wods, CSS file from smartphone page example 
+ */
  
 
  html {
@@ -97,7 +99,7 @@
   
   
   main {
-    display:flex;
+    display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
   }
