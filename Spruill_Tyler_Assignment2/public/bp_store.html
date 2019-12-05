@@ -1,0 +1,106 @@
+<script>
+    /*Name: Tyler Spruill
+    Purpose: To create an e-commerce store that includes an index page, validates data and only accepts valid, non-negative integers, and that generates an invoice page when items selected are submitted
+    Date: November 1-15th approximately 
+    Code for index borrowed from Lab 2 or 3
+    */
+   function isNonNegInt(q, return_errors = false) {
+        errors = []; // assume no errors at first
+        if(q == '') q =0; // handle blank inputs as if they are 0
+        if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Check if string is a number value
+        else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Check if it is non-negative
+        else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer
+        return return_errors ? errors : (errors.length == 0);
+    }
+    //checks the quantity placed within the textbook to assure that it is a positive integer to document how many of a product is desired
+    function checkQuantityTextbox(theTextbox) {
+        errs = isNonNegInt(theTextbox.value, true);
+        if (errs.length == 0) errs = ['You want:']; //when no errors, show that the number inputed is what the user wants
+        if (theTextbox.value.trim() == '') errs = ['quantity']; 
+        document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+    }
+
+    window.onload = function () {
+        let params = (new URL(document.location)).searchParams; // get the query string which has the form data
+        // form was submitted so check that quantities are valid then redirect to invoice if they are
+        if (params.has('purchase_submit')) {
+            has_errors = false; // assume quantities are valid from the start
+            total_qty = 0; // Look if the total > 0 so we know something has been selected
+            for (i = 0; i < products_array.length; i++) {
+                //iterates through the length of the array to 
+                if (params.has(`quantity${i}`)) {
+                    a_qty = params.get(`quantity${i}`);
+                    // prevents invalid data
+                    product_selection_form[`quantity${i}`].value = a_qty;
+                    total_qty += a_qty; 
+                    if(!isNonNegInt(a_qty)) {
+                        has_errors = true; // invalid quantity
+                        checkQuantityTextbox(product_selection_form[`quantity${i}`]); // show where the error is
+                    }
+                }
+            }
+            // Now respond to errors or redirect to invoice if all is ok
+            if(has_errors) {
+                alert("Please enter only valid quantities!");
+            } else if(total_qty == 0) { // no quantity selections, just give a general alert
+                alert("Please select some quantities!");
+            } else { // all good to go!
+                window.location = `./login.html${document.location.search}`;
+                window.stop;
+            }
+        }
+    }
+    
+</script>
+<!DOCTYPE html>
+<html>
+    <script src="./product_data.js" type="text/javascript">//connection to product data</script>
+<head>
+    <meta charset="utf-8">
+    <title>Backpack Store</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+
+    <link href="products-style.css" rel="stylesheet">
+    <style>
+        body {
+            transform: scale(1);
+            transform-origin: 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="product_selection_form" action="" method="GET">
+        <header>
+            <h1>Backpack Shop</h1>
+        </header>
+        <div>
+            <main>
+                <script>
+                    // code modified from example webpage within Assignment 1 instructions
+                    for (i = 0; i < products_array.length; i++) {
+                        document.write(`
+                            <section class="item">
+                                <h2>${products_array[i].model}</h2>
+                                <p>$${products_array[i].price}</p>
+                                <label id="quantity${i}_label"}">Quantity</label>
+                                <input type="text" placeholder="0" name="quantity${i}" 
+                                onkeyup="checkQuantityTextbox(this);">
+                                <img src="${products_array[i].image}">
+                            </section> 
+                        `);
+                    }    
+                </script>
+            </main>
+        </div>
+        <footer>
+            <h1>
+                Backpacks for everyone
+            </h1>
+            <input type="submit" value="Purchase" name="purchase_submit">
+        </footer>
+    </form>
+</body>
+
+</html>

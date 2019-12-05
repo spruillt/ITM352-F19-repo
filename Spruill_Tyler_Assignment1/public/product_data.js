@@ -33,5 +33,5 @@ products_array = [
   ]
 
   if(typeof module != 'undefined') {
-    module.exports.products_array = products_array;
+    module.exports= products_array;
   }
